@@ -1,0 +1,135 @@
+﻿
+@model List<WebApplication1.Models.Proizvodi>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponuda automobila</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            background: linear-gradient(120deg,#366a94,#be6ee0);
+            height: 100vh;
+        }
+
+        .header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            font-size: 50px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .car-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .car-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .car-image {
+            max-width: 200px;
+            max-height: 300px;
+        }
+
+        .btn-accent {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .btn-accent:hover {
+                background-color: #2980b9;
+            }
+
+        .footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+    <body>
+
+        <div class="header">
+            <h1>User Car Purchase Page</h1>
+            <p>Dobrodošli!</p> 
+        </div>
+    <p><marquee>Najbolja ponuda na tržištu</marquee></p>
+        <div class="main-content">
+
+            @foreach (var filename in ViewBag.ProizvodiWithFileNames)
+            {
+                <div class="car-card">
+                    <form method="post" action="@Url.Action("DecreaseProperty","PrikazProizvoda")">
+                        <div class="car-details">
+                            <!-- Image on top -->
+                            <img src="~/Slike/@filename.SlikeUrl" class="car-image" />
+                            <!-- Properties below -->
+                            <p>Model: @filename.Model</p>
+                            <p>Svojstva: @filename.Svojstva</p>
+                            <p>Godiste: @filename.Godiste</p>
+                            <p>Cijena: @filename.Cijena</p>
+                            <!-- Hidden input for ItemId -->
+                            <input type="hidden" name="ItemId" value="@filename.Id" />
+                            <input type="hidden" name="Stanje" value="@filename.Stanje" />  
+                            <!-- Buy button -->
+                        <button type="submit" class="btn-accent mt-4" onclick="buyButtonClick(this)" > Kupi</button>
+                        </div>
+                    </form>
+                </div>
+            }
+      
+        </div>
+
+        <div class="footer">
+            <h2>Načini plaćanja</h2>
+            @foreach (var filename in ViewBag.ProizvodiWithFileNames)
+            {
+                <div>
+                    <div>
+                        <img src="~/Slike/@filename.Placanja" style="max-width: 80px; max-height: 80px" />
+                    </div>
+                </div>
+            }
+        </div>
+    </body>
+    </html>
+
+
+
+

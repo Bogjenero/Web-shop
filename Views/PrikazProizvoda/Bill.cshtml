@@ -1,0 +1,91 @@
+﻿@model WebApplication1.Models.BillView
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Račun</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            background: linear-gradient(120deg,#366a94,#be6ee0);
+            height: 100vh;
+            color: #343a40;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-collapse: collapse; 
+            margin-bottom: 20px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
+        td {
+            background-color: #ffffff;
+        }
+
+        .footer {
+            margin-top: 20px;
+            color: ##36454F;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Hvala vam na kupnji!</h2>
+
+    <table>
+        <tr>
+            <th>Model</th>
+            <th>Datum kupnje</th>
+            <th>Svojstva</th>
+            <th>Godina</th>
+            <th>Cijena</th>
+        </tr>
+        <tr>
+            <td>@Model.Model</td>
+            <td>@Model.DateBill</td>
+            <td>@Model.Svojstva</td>
+            <td>@Model.Godiste</td>
+            <td>@Model.Cijena</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <p>&copy; 2023 Sjajan račun.Sva prava pridržana.</p>
+    </div>
+</body>
+
+</html>

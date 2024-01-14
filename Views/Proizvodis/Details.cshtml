@@ -1,0 +1,118 @@
+﻿@model WebApplication1.Models.Proizvodi
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            background: linear-gradient(120deg,#366a94,#be6ee0);
+            height: 100vh;
+        }
+
+        .back-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+                background-color: #2980b9;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+   <a class="back-button" asp-area="" asp-controller="Login" asp-action="Login">Login-page</a>
+<h1>Details</h1>
+
+<div>
+    <h4>Korisnici</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cijena)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cijena)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Godiste)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Godiste)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Svojstva)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Svojstva)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SlikeUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SlikeUrl)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Placanja)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Placanja)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Stanje)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Stanje)
+        </dd>
+    </dl>
+</div>
+<div>
+    
+    <a class="btn" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+        <a class="btn" asp-action="Index">Vraćanje na listu proizvoda</a>
+</div>
+</body>

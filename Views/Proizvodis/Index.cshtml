@@ -1,0 +1,123 @@
+﻿@model IEnumerable<WebApplication1.Models.Proizvodi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: montserrat;
+            background: linear-gradient(120deg,#366a94,#be6ee0);
+            height: 100vh;
+        }
+
+        .back-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+                background-color: #2980b9;
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+
+<body>
+<div>
+    <a class="back-button" asp-area="" asp-controller="Login" asp-action="Login">Login-page</a>
+</div>
+
+<h1>Prikaz vozila</h1>
+<p>
+    <a class="btn" asp-action="Create">Unos novih automobila</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Svojstva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SlikeUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Godiste)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cijena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Placanja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stanje)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Svojstva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SlikeUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Godiste)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placanja)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Stanje)
+            </td>
+            <td>
+                <a class="btn" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn"  asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn"  asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
